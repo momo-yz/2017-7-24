@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body,p,ul,li{
+				margin: 0;
+				padding: 0;
+				font-size: 12px;
+				font-family: "微软雅黑";
+			}
+			a{
+				text-decoration: none;
+			}
+			ul,li{
+				list-style: none;
+			}
+			#box{
+				width: 800px;
+				height: 500px;
+				background: #efefef;
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: 10;
+			}
+			#top{
+				overflow: hidden;
+				margin-bottom: 30px;
+			}
+			#top p{
+				float: left;
+				height: 40px;
+				margin-top: 20px;
+				line-height: 40px;
+				font-size: 25px;
+				margin-left: 15px;
+				margin-right: 10px;
+				
+			}
+			#top a{
+				width: 100px;
+				height: 40px;
+				background: #ff0000;
+				color: #FFF2F1;
+				text-align: center;
+				line-height: 40px;
+				float: left;
+				margin-top: 20px;
+			}
+			#con{
+				width: 100px;
+				height: 100px;
+				background: #FFFFFF;
+				border: 3px solid #393129;
+				margin-left: 15px;
+				border-radius: 50%;
+			}
+			/*right*/
+			#right{
+				width: 800px;
+				height: 500px;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			#dnf{
+				background: #000000;
+				width: 800px;
+				height: 500px;
+				opacity: 0.3;
+			}
+			.list{
+				width: 250px;
+				height: 180px;
+				border: 15px solid #9c949c;
+				background: #FFFFFF;
+				position: absolute;
+				top: 120px;
+				right: 20px;
+			}
+			.list li{
+				
+				text-align: center;
+				margin-left: 20px;
+				margin-top: 15px;
+				overflow: hidden;
+				
+			}
+			.list .mar{
+				margin-left:22px;
+			}
+			.list li span{
+				float: left;
+				height: 25px;
+				line-height: 25px;
+				margin-right: 10px;
+			}
+			.list a{
+				float: left;
+				height: 25px;
+				width: 30px;
+				background: #efefef;
+				margin-right: 10px;
+				color: #97a1ab;
+				line-height: 25px;
+			}
+			#bg1{
+				background: red;
+				color: #FFFFFF;
+			}
+			#bg2{
+				background: yellow;
+				color: #FFFFFF;
+			}
+			#bg3{
+				background: deepskyblue;
+				color: #FFFFFF;
+			}
+			.list .item:hover{
+				background: #ef9400;
+				color: #000000;	
+			}
+			.list .but{
+				margin-left: 50px;
+			}
+			.list .but a{
+				width: 40px;
+				background: #002952;
+				margin-left: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="top">
+				<p>请为下面的DIV设置样式：</p>
+				<a href="#" id="set">点击设置</a>
+			</div>
+			<div id="con"></div>
+		</div>
+		<div id="right">
+			<div id="dnf"></div>
+			<ul class="list" id="list">
+				<li class="cod">
+					<span>请选择背景色:</span>
+					<a href="#" id="bg1">红</a>
+					<a href="#" id="bg2">黄</a>
+					<a href="#" id="bg3">蓝</a>
+				</li>
+				<li class="mar">
+					<span>请选择宽(px):</span>
+					<a href="#" id="item1" class="item">200</a>
+					<a href="#" id="item2" class="item">300</a>
+					<a href="#" id="item3" class="item">400</a>
+				</li>
+				<li class="mar">
+					<span>请选择高(px):</span>
+					<a href="#" id="item4" class="item">200</a>
+					<a href="#" id="item5" class="item">300</a>
+					<a href="#" id="item6" class="item">400</a>
+				</li>
+				<li class="but">
+					<a href="#" id="renew">恢复</a>
+					<a href="#" id="make">确定</a>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var set = document.getElementById('set');
+			var list = document.getElementById('list');
+			var right = document.getElementById('right');
+			var con = document.getElementById('con');
+			var bg1 = document.getElementById('bg1');
+			var bg2 = document.getElementById('bg2');
+			var bg3 = document.getElementById('bg3');
+			var item1 = document.getElementById('item1');
+			var item2 = document.getElementById('item2');
+			var item3 = document.getElementById('item3');
+			var item4 = document.getElementById('item4');
+			var item5 = document.getElementById('item5');
+			var item6 = document.getElementById('item6');
+			var make = document.getElementById('make');
+			var renew = document.getElementById('renew');
+			//颜色
+			var arr1 = ['red','yellow','deepskyblue'];
+			//宽高
+			var arr2 = ['200px','300px','400px'];
+			//移入出现遮罩层
+			set.onclick = function(){
+				right.style.zIndex = '1000';
+			}
+			//红
+			bg1.onclick = function(){
+				bg1.style.border = '1px solid #000';
+				con.style.background=arr1[0];
+			}
+			//黄
+			bg2.onclick = function(){
+				bg1.style.border = '';
+				bg2.style.border = '1px solid #000';
+				con.style.background=arr1[1];
+			}
+			//蓝
+			bg3.onclick = function(){
+				bg1.style.border = '';
+				bg2.style.border = '';
+				bg3.style.border = '1px solid #000';
+				con.style.background=arr1[2];
+			}
+			item1.onclick = function(){
+				con.style.width = arr2[0];
+			}
+			item2.onclick = function(){
+				con.style.width = arr2[1];
+			}
+			item3.onclick = function(){
+				con.style.width = arr2[2];
+			}
+			item4.onclick = function(){
+				con.style.height = arr2[0];
+			}
+			item5.onclick = function(){
+				con.style.height = arr2[1];
+			}
+			item6.onclick = function(){
+				con.style.height = arr2[2];
+			}
+			//确定
+			make.onclick = function(){
+				right.style.zIndex = '';
+			}
+			//恢复
+			renew.onclick = function(){
+				right.style.zIndex = '';
+				con.style.height = '';
+				con.style.width = '';
+				con.style.background = '';
+			}
+		</script>
+	</body>
+</html>
